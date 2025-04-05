@@ -1,7 +1,64 @@
-# .gitignore
-
+# Node.js
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 dist/
+build/
 .env
+.env.local
+
+# React / Next.js
+.next/
+out/
+.cache/
+public/static/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+*.sqlite3
+*.log
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
 .DS_Store
-npm-debug.log
+
+# System
+Thumbs.db
+.idea/
+*.swp
+
+# Coverage
+coverage/
+*.lcov
+
+# Database dumps
+*.sql
+*.dump
+
+# Logs
+logs/
+*.log
+
+# Git
+.git/
+
+# Misc
+*.bak
+*.tmp
+
+# Ignore frontend and backend envs separately if needed
+frontend/.env
+backend/.env
