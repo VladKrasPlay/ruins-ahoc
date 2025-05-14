@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUINS: AN HOUR OF CLIMBING</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Ruins: a hour of climbing" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS (анимация при прокрутке) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="logo">
+      <img src="images/icon.png" alt="Логотип" />
+      <div class="logo-text">
+        <span>RUINS: AN HOUR</span>
+        <span>OF CLIMBING</span>
+      </div>
+    </div>
+    <div class="nav-wrapper">
+        <nav class="nav">
+          <a href="#">СООБЩЕСТВО</a>
+          <a href="#">ПОДДЕРЖКА</a>
+          <a href="#">НОВОСТИ</a>
+        </nav>
+        <div class="user-icon">
+            <img src="images/default-user.png " alt="Пользователь" />
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </header>
+
+  <div class="line"></div>
+
+  <!-- Главная секция -->
+  <main class="hero">
+    <!-- Модальное меню -->
+  
+    <div class="hero-content">
+        <div class="burger-overlay hidden" id="burgerOverlay">
+            <div class="burger-modal" id="burgerModal">
+              <div class="close-button" id="closeModal">×</div>
+              <div class="avatar-clone" id="avatarClone">
+                <img src="images/default-user.png" alt="Аватар" />
+              </div>
+              <div class="modal-content" id="modalContent">
+                <!-- Здесь будет наполнение через JS -->
+              </div>
+            </div>
+        </div>
+      <h1>RUINS: AN HOUR OF CLIMBING</h1>
+      <p >преодолейте тьму, найдите свет...</p>
+      <a href="#" class="hero-button">доступ к бете</a>
+    </div>
+
+  </main>
+
+  <!-- Модальное окно -->
+  <div id="beta-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Регистрация в бета-тест</h2>
+      <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="platform">Платформа:</label>
+        <select id="platform" name="platform" required>
+          <option value="">Выберите</option>
+          <option value="pc">PC</option>
+          <option value="console">Консоль</option>
+        </select>
+
+        <button type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Новая секция об игре -->
+  <section class="about" id="about">
+    <div class="light-glow"></div>
+    <div class="dust-layer"></div>
+  <div class="container" data-aos="fade-up">
+    <h2>Об игре</h2>
+    <p>
+    <strong>RUINS: A HOUR OF CLIMBING</strong> — это захватывающая игра с открытым миром, которая погружает
+    в постапокалиптический мир, разрушенный ядерной войной. Испытайте свои навыки и смекалку,
+    преодолевая сложные препятствия и раскрывая тайны заброшенных цивилизаций.
+    </p>
+  </div>
+
+</section>
+  
+  <section class="features">
+    <div class="light-glow"></div>
+    <div class="dust-layer"></div>
+    <div class="container">
+      <h2 data-aos="fade-up">Особенности игры</h2>
+      <ul>
+      <li data-aos="fade-up" data-aos-delay="100">
+        <strong>Увлекательный геймплей:</strong> исследуйте обширный открытый мир, полный уникальных вызовов и загадок.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="200">
+        <strong>Потрясающая 3D графика:</strong> погрузитесь в атмосферу игры благодаря великолепной визуальной стилистике и деталям окружающего мира.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="300">
+        <strong>Интуитивное управление:</strong> простое и удобное управление позволяет вам сосредоточиться на исследовании и решении задач.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="400">
+        <strong>Коллекционирование персонажей:</strong> составляйте свою команду из уникальных персонажей, каждый со своими навыками и историей.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="500">
+        <strong>Захватывающий сюжет:</strong> откройте для себя мир, полный тайн и интриг, который будет постепенно раскрываться по мере вашего продвижения в игре.
+      </li>
+      </ul>
+    </div>
+    </section>
+    
+  
+  
+	<!-- Новая секция Сюжет -->
+	<section class="story" id="story">
+		<div class="light-glow"></div>
+		<div class="dust-layer"></div>
+		<div class="decorative-frame"></div>
+	  
+		<div class="container" data-aos="fade-up">
+		  <h2 class="story-title" data-aos="fade-right">Сюжет</h2>
+		  <p data-aos="fade-up" data-aos-delay="100">
+			2055 год, территория СНГ. Прошло пятьдесят лет с тех пор, как разрушительная ядерная война навсегда изменила мир. Главный герой — Александр Волков, 35-летний бывший инженер, выживший в подземном убежище. Выйдя на поверхность, он понимает, что прежний мир исчез, оставив после себя лишь хаос и разрушения.
+Вскоре Александр сталкивается с небольшой группой выживших, называющих себя «Неферум». Они стремятся восстановить порядок и создать новую сильную фракцию, способную противостоять бандитам и другим враждебным группировкам. Александр присоединяется к ним, чтобы найти своё место в этом новом мире.
+		  </p>
+	
+		</div>
+	  </section>
+
+	  <section id="contacts" class="contacts-section" data-aos="fade-up">
+		<div class="container">
+		  <h2 class="section-title">Наши контакты</h2>
+		  <p class="section-par"> Есть вопросы? Задайте их нам!</p>
+		  <div class="contacts-content">
+			<div class="contact-info">
+			  <p><i class="fas fa-envelope"></i> ruins.support@example.com</p>
+			</div>
+			<form class="contact-form">
+			  <label for="name">Имя</label>
+			  <input type="text" id="name" name="name" required>
+	  
+			  <label for="email">Email</label>
+			  <input type="email" id="email" name="email" required>
+	  
+			  <label for="message">Сообщение</label>
+			  <textarea id="message" name="message" rows="5" required></textarea>
+	  
+			  <button type="submit" class="submit-button">Отправить</button>
+			</form>
+		  </div>
+		</div>
+	  </section>
+	  
+	  <footer class="site-footer">
+		<div class="footer-container">
+		  <div class="footer-left">
+			<p>&copy; 2025 SPECTRAVERSE GAMES</p>
+			<a href="#" class="privacy-policy">Политика конфиденциальности</a>
+		  </div>
+		  <div class="footer-center">
+			<a href="#" class="social-link" title="ВКонтакте"><i class="fab fa-vk"></i></a>
+			<a href="#" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
+			<a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+		  </div>
+		  <div class="footer-right">
+			<button class="to-top-button">Вернуться наверх ↑</button>
+		  </div>
+		</div>
+	  </footer>
+	   
+	<script src="skripts.js"></script>
+	<!-- AOS Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script>
+	document.addEventListener('scroll', () => {
+	  const glow = document.querySelectorAll('.light-glow');
+	  const scrollY = window.scrollY;
+	  glow.forEach(g => {
+		g.style.opacity = Math.min(1, scrollY / 600);
+	  });
+	});
+  </script>
+  
+
+</body>
+<div id="preloader">
+    <div class="spinner">⟳</div>
+</div>
+</html>
