@@ -65,7 +65,7 @@ function logout() {
 document.addEventListener("DOMContentLoaded", () => {
     const openBtn = document.querySelector(".hero-button");
     const modal = document.getElementById("beta-modal");
-    const closeBtn = document.querySelector(".close-button");
+    const closeBtn = modal.querySelector(".close-button");
   
     openBtn.addEventListener("click", (e) => {
         e.preventDefault();
