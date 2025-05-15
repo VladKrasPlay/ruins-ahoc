@@ -143,7 +143,7 @@
 
   /* Главная секция */
   .hero {
-    background-image: url('images/main.webp');
+    background-image: url('images/main.avif');
     background-size: cover;
     background-position-y: top;
     height: 24rem;
