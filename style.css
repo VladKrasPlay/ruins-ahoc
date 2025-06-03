@@ -391,7 +391,7 @@ margin-top: 1.25rem; /* 20px */
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .about {
-    height: 90vh;
+    height: 100vh;
   }
 }
 
@@ -442,7 +442,7 @@ margin-top: 1.25rem; /* 20px */
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .features {
-    height: 130vh;
+    height: 140vh;
   }
 }
 
@@ -602,7 +602,7 @@ margin-top: 1.25rem; /* 20px */
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .story {
-    height: 136vh;
+    height: 145vh;
   }
 }
 
