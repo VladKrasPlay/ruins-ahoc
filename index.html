@@ -1,943 +1,220 @@
-@font-face {
-    font-family: 'Marske';
-    src: url('fonts/Marske.woff2') format('woff2'),
-    url('fonts/Marske.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'Marske', Orbitron, sans-serif;
-    background-color: #2e2c24;
-    color: #c2a482;
-    font-size: 1rem; /* базовый размер */
-  }
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RUINS: AN HOUR OF CLIMBING</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Ruins: a hour of climbing" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* Шапка */
-  .header {
-    height: 5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #2e2c24;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
-    flex-wrap: wrap;
-  }
+<!-- AOS (анимация при прокрутке) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
-  
-  .nav-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex-wrap: nowrap;
-    position: relative;
-    left: 14rem;
-  }
-    .nav-menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    position: relative;
-    right: 3.55rem;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem; /* 4px */
-    position: relative;
-  }
-  
-  .logo img {
-    width: 4.5rem;  /* 100px */
-    height: 4.5rem;
-    border-radius: 50%;
-    margin: 0.5rem;
-  }
-  
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5rem; /* 20px */
-    text-transform: uppercase;
-  }
-  
-  /* Планшеты */
-  @media (max-width: 1024px) {
-    .logo img {
-      width: 4.25rem; /* 100px */
-      height: 4.25rem;
-    }
-    .nav-wrapper {
-      margin-right: 16rem;
-    }
-  }
-  
-  /* Мобильные устройства */
-  @media (max-width: 768px) {
-    .logo-text {
-      font-size: 1.3rem; /* 14px */
-    }
-    .nav-wrapper {
-      display: none;
-    }
-    .logo img {
-      width: 4rem; /* 100px */
-      height: 4rem;
-    }
-  }
-  
-  /* Очень маленькие экраны */
-  @media (max-width: 480px) {
-    .logo img {
-    width: 4.rem; /* 100px */
-    height: 4.rem;
-    }
-    .logo {
-      left: 0.1rem;
-    }
-    .logo-text {
-      font-size: 1.3rem; /* 16px */
-    }
-    .nav-wrapper {
-      display: none;
-    }
-  }
-  
-  /* Навигация */
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem; /* 40px */
-    font-size: 1.25rem; /* 20px */
-    margin-left: 1.25rem; /* 20px */
-  }
-  
-  @media (max-width: 768px) {
-    .nav {
-      gap: 1.25rem; /* 20px */
-    }
-  }
-  
-  .nav a {
-    color: #c2a482;
-    text-decoration: none;
-  }
-  
-  .user-icon {
-    width: 3.4375rem;
-    height: 3.4375rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    cursor: pointer;
-    flex-shrink: 0; /* не даём сжиматься */
-  }
-  .user-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+</head>
+<body>
 
-  .logo,
-.logo-text,
-.nav,
-.user-icon {
-  min-width: 0;
-  flex-shrink: 1;
-}
+  <!-- Шапка -->
+  <header class="header">
+    <div class="logo">
+      <img src="images/icon.webp" alt="Логотип" />
+      <div class="logo-text">
+        <span>RUINS: AN HOUR</span>
+        <span>OF CLIMBING</span>
+      </div>
+    </div>
+    <div class="nav-wrapper">
+        <nav class="nav">
+          <a href="#">СООБЩЕСТВО</a>
+          <a href="#">ПОДДЕРЖКА</a>
+          <a href="#">НОВОСТИ</a>
+        </nav>
+    </div>
+    <div class="nav-menu">
+      <div class="user-icon">
+        <img src="images/default-user.webp " alt="Пользователь" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </header>
 
+  <div class="line"></div>
 
-.line {
-    width: 100%;
-    height: 5rem;
-}
+  <!-- Главная секция -->
+  <main class="hero">
+    <!-- Модальное меню -->
+  
+    <div class="hero-content">
+        <div class="burger-overlay hidden" id="burgerOverlay">
+            <div class="burger-modal" id="burgerModal">
+              <div class="close-button" id="closeModal">×</div>
+              <div class="avatar-clone" id="avatarClone">
+                <img src="images/default-user.webp" alt="Аватар" />
+              </div>
+              <div class="modal-content" id="modalContent">
+                <!-- Здесь будет наполнение через JS -->
+              </div>
+            </div>
+        </div>
+      <h1>RUINS: AN HOUR OF CLIMBING</h1>
+      <p >преодолейте тьму, найдите свет...</p>
+      <a href="#" class="hero-button">доступ к бете</a>
+    </div>
 
-  /* Главная секция */
-  .hero {
-    background-image: url('images/main.avif');
-    background-size: cover;
-    background-position-y: top;
-    height: 24rem;
-    padding-top: 18.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: left;
-  }
+  </main>
+
+  <!-- Модальное окно -->
+  <div id="beta-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Регистрация в бета-тест</h2>
+      <form 
+      action="https://formspree.io/f/mbloqpbv"
+      method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="platform">Платформа:</label>
+        <select id="platform" name="platform" required>
+          <option value="">Выберите</option>
+          <option value="pc">PC</option>
+          <option value="console">Консоль</option>
+        </select>
+
+        <button type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Новая секция об игре -->
+  <section class="about" id="about">
+    <div class="light-glow"></div>
+    <div class="dust-layer"></div>
+  <div class="container" data-aos="fade-up">
+    <h2>Об игре</h2>
+    <p>
+    <strong>RUINS: A HOUR OF CLIMBING</strong> — это захватывающая игра с открытым миром, которая погружает
+    в постапокалиптический мир, разрушенный ядерной войной. Испытайте свои навыки и смекалку,
+    преодолевая сложные препятствия и раскрывая тайны заброшенных цивилизаций.
+    </p>
+  </div>
+
+</section>
   
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 24rem;
-    padding-top: 23.75rem;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-} 
+  <section class="features">
+    <div class="light-glow"></div>
+    <div class="dust-layer"></div>
+    <div class="container">
+      <h2 data-aos="fade-up">Особенности игры</h2>
+      <ul>
+      <li data-aos="fade-up" data-aos-delay="100">
+        <strong>Увлекательный геймплей:</strong> исследуйте обширный открытый мир, полный уникальных вызовов и загадок.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="200">
+        <strong>Потрясающая 3D графика:</strong> погрузитесь в атмосферу игры благодаря великолепной визуальной стилистике и деталям окружающего мира.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="300">
+        <strong>Интуитивное управление:</strong> простое и удобное управление позволяет вам сосредоточиться на исследовании и решении задач.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="400">
+        <strong>Коллекционирование персонажей:</strong> составляйте свою команду из уникальных персонажей, каждый со своими навыками и историей.
+      </li>
+      <li data-aos="fade-up" data-aos-delay="500">
+        <strong>Захватывающий сюжет:</strong> откройте для себя мир, полный тайн и интриг, который будет постепенно раскрываться по мере вашего продвижения в игре.
+      </li>
+      </ul>
+    </div>
+    </section>
+    
+  
+  
+	<!-- Новая секция Сюжет -->
+	<section class="story" id="story">
+		<div class="light-glow"></div>
+		<div class="dust-layer"></div>
+		<div class="decorative-frame"></div>
+	  
+		<div class="container" data-aos="fade-up">
+		  <h2 class="story-title" data-aos="fade-right">Сюжет</h2>
+		  <p data-aos="fade-up" data-aos-delay="100">
+			2055 год, территория СНГ. Прошло пятьдесят лет с тех пор, как разрушительная ядерная война навсегда изменила мир. Главный герой — Александр Волков, 35-летний бывший инженер, выживший в подземном убежище. Выйдя на поверхность, он понимает, что прежний мир который видел лишь на фотографиях исчез, оставив после себя лишь хаос и разрушения.
+Вскоре Александр сталкивается с небольшой группой выживших, называющих себя «Неферум». Они стремятся восстановить порядок и создать новую сильную фракцию, способную противостоять бандитам и другим враждебным группировкам. Александр присоединяется к ним, чтобы найти своё место в этом новом мире.
+		  </p>
+	
+		</div>
+	  </section>
+
+	  <section id="contacts" class="contacts-section" data-aos="fade-up">
+		<div class="container">
+		  <h2 class="section-title">Наши контакты</h2>
+		  <p class="section-par"> Есть вопросы? Задайте их нам!</p>
+		  <div class="contacts-content">
+			<div class="contact-info">
+			  <p><i class="fas fa-envelope"></i> ruins.support@example.com</p>
+			</div>
+			<form class="contact-form">
+			  <label for="name">Имя</label>
+			  <input type="text" id="name" name="name" required>
+	  
+			  <label for="email">Email</label>
+			  <input type="email" id="email" name="email" required>
+	  
+			  <label for="message">Сообщение</label>
+			  <textarea id="message" name="message" rows="5" required></textarea>
+	  
+			  <button type="submit" class="submit-button">Отправить</button>
+			</form>
+		  </div>
+		</div>
+	  </section>
+	  
+	  <footer class="site-footer">
+		<div class="footer-container">
+		  <div class="footer-left">
+			<p>&copy; 2025 SPECTRAVERSE GAMES</p>
+			<a href="#" class="privacy-policy">Политика конфиденциальности</a>
+		  </div>
+		  <div class="footer-center">
+			<a href="#" class="social-link" title="ВКонтакте"><i class="fab fa-vk"></i></a>
+			<a href="#" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
+			<a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+		  </div>
+		  <div class="footer-right">
+			<button class="to-top-button">Вернуться наверх ↑</button>
+		  </div>
+		</div>
+	  </footer>
+	   
+	<script src="skripts.js"></script>
+	<!-- AOS Script -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script>
+	document.addEventListener('scroll', () => {
+	  const glow = document.querySelectorAll('.light-glow');
+	  const scrollY = window.scrollY;
+	  glow.forEach(g => {
+		g.style.opacity = Math.min(1, scrollY / 600);
+	  });
+	});
+  </script>
   
 
-  .hero-content {
-    position: relative;
-    right: 6.25rem; /* 100px */
-    bottom: 12.75rem; /* 20px */
-    z-index: 2;
-    max-width: 50rem; /* 800px */
-    padding: 1.25rem; /* 20px */
-    margin: auto;
-  }
-  
-  .hero h1 {
-    font-size: 4.25rem; /* 36px */
-    text-transform: uppercase;
-    margin-bottom: 0.625rem; /* 10px */
-    color: #eeecec;
-  }
-  
-  .hero p {
-    font-size: 1.925rem; /* 18px */
-    color: #bebebe;
-    margin-bottom: 1.875rem; /* 30px */
-  }
-  
-  .hero-button {
-    display: inline-block;
-    padding: 1.25rem 3rem; /* 12px 24px */
-    background-color: #c2a482;
-    color: #2e2c24;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    font-size: 1.25rem; /* 20px */
-  }
-  
-  .hero-button:hover {
-    background-color: #a88c6a;
-  }
-
-  /* Планшеты */
-@media (max-width: 1024px) {
-  .hero-content {
-    right: 2.5rem; /* 40px */
-    bottom: 8.75rem; /* 14px */
-    padding: 0.9375rem; /* 15px */
-    font-size: 1.25rem; /* 20px */
-    max-width: 40rem; /* 640px */
-  }
-}
-/* Мобильные устройства */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 0.625rem; /* 10px */
-    margin: 0; /* 0 */
-    font-size: 1.25rem; /* 20px */
-    max-width: 25rem; /* 480px */
-    left: 0.4rem; /* 40px */
-  }
-}
-
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-  .hero-content {
-    padding: 0.625rem; /* 10px */
-    margin: 0; /* 0 */
-    font-size: 1.25rem; /* 20px */
-    max-width: 25rem; /* 480px */
-    left: 0.5rem; /* 40px */
-    bottom: 12rem;
-  }
-}
-
-  
-  /* Модальное окно */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background-color: #2e2c24;
-    color: #fff;
-    padding: 1.875rem; /* 30px */
-    border-radius: 0.625rem; /* 10px */
-    width: 90%;
-    max-width: 25rem; /* 400px */
-    position: relative;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 0.9375rem; /* 15px */
-    right: 1.25rem; /* 20px */
-    font-size: 1.5rem; /* 24px */
-    color: #c2a482;
-    cursor: pointer;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9375rem; /* 15px */
-
-margin-top: 1.25rem; /* 20px */
-  }
-  
-  form label {
-    font-size: 0.875rem; /* 14px */
-    color: #c2a482;
-  }
-  
-  form input, form select {
-    padding: 0.625rem; /* 10px */
-    border: none;
-    border-radius: 0.3125rem; /* 5px */
-    background: #3a372e;
-    color: #fff;
-  }
-  
-  form button {
-    background-color: #c2a482;
-    color: #2e2c24;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 0.75rem; /* 12px */
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  form button:hover {
-    background-color: #a88c6a;
-  }
-
-  
-  
-  /* Секция "О игре" */
-  .about {
-    background-color: #3a3434;
-    color: #ddd;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 1.45rem; /* 40px 20px */
-    text-align: center;
-  }
-
-  
-  
-  .about .container {
-    max-width: 46.25rem; /* 900px */
-    margin-top: 1.25rem; /* 20px */
-    margin-bottom: 1.8;
-    margin-left: 1.875rem; /* 30px */
-    margin-right: 1.875rem; /* 30px */
-  }
-
-  .about h2 {
-    font-size: 3rem; /* 32px */
-    color: #c2a482;
-    margin-bottom: 1.25rem; /* 20px */
-    text-transform: uppercase;
-  }
-  
-  .about p {
-    font-size: 1.6rem; /* 20px */
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-    text-align: left;
-  }
-  
-  .about strong {
-    color: #f0c888;
-  }
-
-
-  .about::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.005) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-/* Мобильные устройства */
-@media (max-width: 768px) {
-  .about {
-    height: 70vh;
-  }
-}
-
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-  .about {
-    height: 90vh;
-  }
-}
-
-  /* Секция "История" */
-  .features {
-    background-color: #1e1e1e;
-    color: #ddd;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 1.25rem; /* 40px 20px */
-    text-align: center;
-  }
-  
-  .features .container {
-    max-width: 56.25rem; /* 900px */
-    margin: 0 auto;
-  }
-  
-  .features h2 {
-    font-size: 3rem; /* 32px */
-    color: #c2a482;
-    margin-bottom: 1.25rem; /* 20px */
-    text-transform: uppercase;
-  }
-  
-  .features ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-  }
-  
-  .features li {
-    font-size: 1.3rem; /* 18px */
-    margin-bottom: 1.5rem; /* 24px */
-    line-height: 2.2rem;
-  }
-  
-/* Мобильные устройства */
-@media (max-width: 768px) {
-  .features {
-    height: 110vh;
-  }
-}
-
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-  .features {
-    height: 130vh;
-  }
-}
-
-  .features strong {
-    color: #f0c888;
-  }
-  .about, .story {
-    position: relative;
-    overflow: hidden;
-  }
-
-
-
-  .about, .features {
-    position: relative;
-    overflow: hidden;
-    background-color: #121212;
-    z-index: 1;
-  }
-  
-  /* Мягкий свет */
-  .light-glow {
-    position: absolute;
-    top: -10rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60rem;
-    height: 60rem;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
-  }
-  
-  /* Слой с пылью */
-  .dust-layer {
-    position: absolute;
-    inset: 0;
-    background-image: url('images/pil.webp'); /* Путь к текстуре пыли (с прозрачностью) */
-    background-repeat: repeat;
-    background-size: cover;
-    opacity: 0.06;
-    z-index: 1;
-    animation: dustMove 120s linear infinite;
-    pointer-events: none;
-    filter: blur(1px);
-  }
-  
-  @keyframes dustMove {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 100rem 100rem;
-    }
-  }
-  
-  /* Контент поверх */
-  .about .container,
-  .features .container {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .story {
-    position: relative;
-    overflow: hidden;
-    background-color: #0f0f0f;
-    padding: 6rem 2rem;
-    z-index: 1;
-    background-image: url('images/bunker.webp');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .story .container {
-    position: relative;
-    z-index: 2;
-    max-width: 60rem;
-    margin: 0 auto;
-    color: #eaeaea;
-    text-align: left;
-  }
-  
-  /* Мягкое свечение */
-  .story .light-glow {
-    position: absolute;
-    top: -20rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80rem;
-    height: 80rem;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
-  }
-  
-  /* Заголовок */
-  .story-title {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-    font-weight: 600;
-    color: #f0f0f0;
-    text-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Анимация пыли (общая) */
-  @keyframes dustMove {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 80rem 80rem;
-    }
-  }
-
-  .story h2 {
-    font-size: 3rem; /* 32px */
-    color: #c2a482;
-    margin-bottom: 1.25rem; /* 20px */
-    text-transform: uppercase;
-    text-align: center
-  }
-  
-  .story p {
-    font-size: 1.5rem; /* 20px */
-    line-height: 1.6;
-    text-align: left;
-  }
-  
-  .story strong {
-    color: #f0c888;
-  }
-
-  .story::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* настрой степень затемнения */
-    z-index: 0; /* ниже текста */
-  }
-
-/* Мобильные устройства */
-@media (max-width: 768px) {
-  .story {
-    height: 90vh;
-  }
-}
-
-/* Очень маленькие экраны */
-@media (max-width: 480px) {
-  .story {
-    height: 136vh;
-  }
-}
-
-  .contacts-section {
-    padding: 4rem 1.5rem;
-    background-color: #121212;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-  }
-  
-  .contacts-section .container {
-    max-width: 60rem;
-    margin: 0 auto;
-  }
-  
-  .section-title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    text-align: left;
-    color: #f0f0f0;
-  }
-
-  .section-par {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    text-align: left;
-    color: #f0f0f0;
-  }
-  
-  .contacts-content {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-right: 1rem;
-  }
-  
-  .contact-info {
-    flex: 1 1 40%;
-    font-size: 1rem;
-    line-height: 1.8;
-  }
-  
-  .contact-info i {
-    margin-right: 0.5rem;
-    color: #f39c12;
-  }
-  
-  .contact-form {
-    flex: 1 1 55%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .contact-form label {
-    font-size: 0.875rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #1e1e1e;
-    color: #fff;
-    width: 100%;
-  }
-  
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: 2px solid #f39c12;
-  }
-  
-  .submit-button {
-    background-color: #f39c12;
-    color: #121212;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #e67e22;
-  }
-  
-  @media (max-width: 768px) {
-    .contacts-content {
-      flex-direction: column;
-    }
-  
-    .contact-info,
-    .contact-form {
-      flex: 1 1 100%;
-    }
-  }
-  
-  .site-footer {
-    background-color: #0e0e0e;
-    color: #ccc;
-    padding: 2rem 1.5rem;
-    font-size: 0.875rem;
-    font-family: 'Orbitron', sans-serif;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 80rem;
-    margin: 0 auto;
-    gap: 1rem;
-  }
-  
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .footer-left p {
-    margin: 0;
-    color: #fff;
-  }
-  
-  .privacy-policy {
-    color: #999;
-    text-decoration: none;
-    font-size: 0.75rem;
-  }
-  
-  .privacy-policy:hover {
-    text-decoration: underline;
-    color: #f39c12;
-  }
-  
-  .footer-center {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .social-link {
-    color: #fff;
-    font-size: 1.25rem;
-    transition: color 0.3s ease;
-  }
-  
-  .social-link:hover {
-    color: #f39c12;
-  }
-  
-  .footer-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .to-top-button {
-    background: none;
-    border: 1px solid #f39c12;
-    color: #f39c12;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .to-top-button:hover {
-    background-color: #f39c12;
-    color: #121212;
-  }
-  
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .footer-right {
-      width: 100%;
-      justify-content: flex-start;
-    }
-  }
-
-/* Оверлей */
-.burger-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
-  }
-  
-  .burger-overlay.hidden {
-    display: none;
-  }
-  
-/* Скрытие по умолчанию */
-.hidden {
-    display: none !important;
-  }
-  
-  /* Оверлей — прозрачный фон на весь экран */
-  .burger-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1000;
-  }
-  
-  /* Модалка — возле аватарки */
-  .burger-modal {
-    position: absolute;
-    top: 7rem;
-    right: 1rem;
-    background: #c2a48285;
-    border-radius: 1rem;
-    width: 14rem;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  
-    /* Выравнивание */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-  
-    z-index: 999;
-  }
-  
-  /* Аватар внутри модалки */
-  #avatarClone img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-  
-#modalContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-  
-  
-  /* Кнопки */
-  .burger-modal button {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 5px 0;
-    background-color: #3b372f;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    text-align: center;
-  }
-  
-  .burger-modal button:hover {
-    background-color: #5c5443;
-  }
-  
-  /* Навигационные ссылки для мобильного меню */
-  .modal-content a {
-    display: block;
-    margin: 8px 0;
-    text-align: center;
-    color: #d3b774;
-    font-family: 'Orbitron', sans-serif;
-    text-decoration: none;
-  }
-  
-  /* Кнопка закрытия */
-  .close-button {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 20px;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  #modalContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #0e0e0e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-  }
-  
-  #preloader .spinner {
-    font-size: 3rem;
-    color: #f39c12;
-    animation: rotate 1.5s linear infinite;
-  }
-  
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  #preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-  
+</body>
+<div id="preloader">
+    <div class="spinner">⟳</div>
+</div>
+</html>
